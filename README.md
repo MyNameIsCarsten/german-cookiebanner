@@ -45,3 +45,8 @@ Depending on the user choice the cookies that also will be generated are:
 - **cookiesConsentChat** (indicates the user has selected the **Chat**-Choice)
 
 (Note: The Cookie names are auto generated based on the `name` attribute of their `input` field.)
+
+# Sources
+- The starting point for this banner came from [here](https://monsterlessons-academy.com/posts/cookie-consent-popup-cookie-banner-examples-with-html-css-javascript).
+- The small check icon is from [Font Awesome](https://fontawesome.com/icons/check?f=classic&s=solid)
+- The cookie icon is from [Stockio](https://www.stockio.com/free-icon/christmas-icons-cookie)
