@@ -40,13 +40,13 @@ button {
 
 /* 3. Structure Styles
 ======================================== */
-#declineBtn, #infoBtn {
+#declineBtn, #infoBtn, #selectedBtn {
     background: transparent;
     color: var(--text_col);
     padding-top: 8px;
 }
 
-#declineBtn:hover, #infoBtn:hover {
+#declineBtn:hover, #infoBtn:hover, #selectedBtn:hover {
     text-decoration: underline;
     color: var(--link_hover);
 }
@@ -149,6 +149,10 @@ button {
 
 .hidden {
 display: none !important;
+}
+
+#cookie-setting {
+    text-align: left;
 }
 
 /* 4. Modules Styles
