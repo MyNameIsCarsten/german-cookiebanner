@@ -37,7 +37,7 @@ document.cookie =
 const cookiesBanner = document.querySelector("#cookies-container");
 const consentBanner = document.querySelector("#consent-container");
 // Select Banner Buttons
-const cookiesBannerAcceptButton = document.querySelector("#acceptBtn");
+const cookiesBannerAcceptButton = document.querySelectorAll('.acceptBtn')
 const cookiesBannerDeclineButton = document.querySelector("#declineBtn");
 const cookiesBannerSelectedButton = document.querySelector("#selectedBtn");
 const cookiesBannerInfoButton = document.querySelector("#infoBtn");
@@ -52,28 +52,32 @@ if (!hasCookie) {
 cookiesBanner.classList.remove("hidden");
 }
 
-/* Accept event */
+/* Accept event*/
 // Add event listener to button
-cookiesBannerAcceptButton.addEventListener("click", () => {
-    // Set cookieName
-    let cookieName = "cookiesConsentAll";
-    // Call setCookie function 
-    setCookie(cookieName, "true");
-    setCookie(cookieMain, "true");
-    // Remove banner
-    cookiesBanner.remove();
-});
+cookiesBannerAcceptButton.forEach(item => {
+    item.addEventListener('click', event => {
+        // Set cookieName
+        let cookieName = "cookiesConsentAll";
+        // Call setCookie function 
+        setCookie(cookieName, "true");
+        setCookie(cookieMain, "true");
+        // Remove banner
+        cookiesBanner.remove();
+        consentBanner.remove();
+    })
+  })
 
 /* Decline event */
 // Add event listener to button
 cookiesBannerDeclineButton.addEventListener("click", () => {
     // Set cookieName
-    let cookieName = "cookiesDeclineAll";
+    let cookieName = "cookiesConsentAll";
     // Call setCookie function 
     setCookie(cookieName, "false");
     setCookie(cookieMain, "true");
     // Remove banner
     cookiesBanner.remove();
+    consentBanner.remove();
 });
 
 /* Click 'Weitere Infos' event */
@@ -89,13 +93,25 @@ cookiesBannerInfoButton.addEventListener("click", () => {
 /* Individual Selection event */
 // Add event listener to button
 cookiesBannerSelectedButton.addEventListener("click", () => {
-    if(document.getElementById("auto").checked) {
-        // Set specificCookieName
-        const specificCookieName = "cookiesConsentAuto";
+    // Store all available options in an array
+    const selectedCookies = document.querySelector("#cookie-setting").querySelectorAll('input');
+
+    // Iterate through array
+    selectedCookies.forEach(item => {
+        // If the specific cookie is checked
+        if(item.checked) {
+            // Set specificCookieName
+            let cookieSuffix = item.name;
+            cookieSuffix = cookieSuffix.charAt(0).toUpperCase() + cookieSuffix.slice(1);
+            
+            // Create Cookie name
+            const specificCookieName = "cookiesConsent" + cookieSuffix;
+            
+            // Call setCookie function 
+            setCookie(specificCookieName, "true");
+        }
+    })
         
-        // Call setCookie function 
-        setCookie(specificCookieName, "true");
-    }
     // User has selected a choice and won't see banner again
     setCookie(cookieMain, "true");
 
@@ -103,5 +119,5 @@ cookiesBannerSelectedButton.addEventListener("click", () => {
     const mandatoryCookies = "cookiesConsentMandatory";
     setCookie(mandatoryCookies, "true");
     // Remove banner
-    document.querySelector("#consent-container").remove();
+    consentBanner.remove();
 });
