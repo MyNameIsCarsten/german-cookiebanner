@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    
+</head>
+<body>
+    <div id="cookies-container" class="hidden">
+        <div id="cookies-container2">
+            <div id="cookies-container3">
+                <div class="cookies-eu-banner">
+                    <img id="cookies-img" src="./cookie.svg" alt="Cookie Oma">
+                </div>
+                <div id="cookies-content">
+                    <h1>Zuckersüß</h1>
+                    <p>Mit unseren Cookies möchten wir Ihnen ein zuckersüßes Einkaufserlebnis mit allem was dazugehört bieten. 
+                        Dazu zählen zum Beispiel passende Angebote und das Merken von Einstellungen. 
+                        Wenn das für Sie okay ist, stimmen Sie der Nutzung von Cookies für Präferenzen, Statistiken und Marketing einfach durch einen Klick auf „Geht klar“ zu (<a href="#Link">alle anzeigen</a>).</p>
+                        <div>
+                            
+                        </div>
+                        <div id="button-container">
+                            <button id="acceptBtn">
+                                <img src="./check-solid.svg" alt="Check">
+                                <span>Geht Klar</span>
+                            </button>
+                            <button id="declineBtn">Cookies ablehnen</button>
+                            <button id="infoBtn">Weiter Infos</button>
+                        </div>
+                    <div id="cookie-links">
+                        <a href="">Impressum</a>
+                        <a href="">Datenschutzhinweise</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="consent-container" class="hidden">
+        <div id="cookies-container2">
+            <div id="cookies-container3">
+                <div id="cookies-content">
+                    <h1>Alle Einstellungen für Cookies im Überblick</h1>
+                    <p>Hier haben Sie die genaue Kontrolle über Ihre Privatsphäre und können entscheiden welche Cookies Thomann verwenden darf und welche nicht. Sie können mit dem Klick auf "Alle aktivieren" der Nutzung von allen unten genannten Cookies zustimmen.</p>
+                        <div id="button-container">
+                            <button id="acceptBtn">Alle aktivieren</button>
+                        </div>
+                        <br>
+                    <label for="mandatory"><strong>Warenkorb - NOTWENDIG</strong></label>
+                    <label for="mandatory">Dies ist ein notwendiger Cookie.</label>
+                    <br>
+                    <section class="cookie-setting">
+                        <input type="checkbox" name="topping" id="auto" value="auto">
+                        <label for="auto"><strong>Auto-Login</strong></label>
+                        <br>
+                        <label for="auto">Sie bleiben auf unserer Webseite eingeloggt, solange Sie sich nicht selbst ausloggen.</label>
+                    </section>
+                    <br>
+                    <div id="button-container">
+                        <button id="acceptBtn">Alle aktivieren</button>
+                        <button id="selectedBtn">Gewählte Cookies erlauben</button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="./cookieScript.js"></script>
+</body>
+</html>
