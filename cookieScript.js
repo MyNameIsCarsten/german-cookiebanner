@@ -42,9 +42,9 @@ const cookiesBannerDeclineButton = document.querySelector("#declineBtn");
 const cookiesBannerSelectedButton = document.querySelector("#selectedBtn");
 const cookiesBannerInfoButton = document.querySelector("#infoBtn");
 // Set cookieName
-const cookieMain = "cookiesConsent";
+const cookieBanner = "cookieBanner";
 // Call getCookie function with cookieName
-const hasCookie = getCookie(cookieMain);
+const hasCookie = getCookie(cookieBanner);
 
 // if hasCookie is false
 if (!hasCookie) {
@@ -60,7 +60,7 @@ cookiesBannerAcceptButton.forEach(item => {
         let cookieName = "cookiesConsentAll";
         // Call setCookie function 
         setCookie(cookieName, "true");
-        setCookie(cookieMain, "true");
+        setCookie(cookieBanner, "true");
         // Remove banner
         cookiesBanner.remove();
         consentBanner.remove();
@@ -74,7 +74,7 @@ cookiesBannerDeclineButton.addEventListener("click", () => {
     let cookieName = "cookiesConsentAll";
     // Call setCookie function 
     setCookie(cookieName, "false");
-    setCookie(cookieMain, "true");
+    setCookie(cookieBanner, "true");
     // Remove banner
     cookiesBanner.remove();
     consentBanner.remove();
@@ -94,7 +94,7 @@ cookiesBannerInfoButton.addEventListener("click", () => {
 // Add event listener to button
 cookiesBannerSelectedButton.addEventListener("click", () => {
     // Store all available options in an array
-    const selectedCookies = document.querySelector("#cookie-setting").querySelectorAll('input');
+    const selectedCookies = document.querySelector("#cookies-content").querySelectorAll('input');
 
     // Iterate through array
     selectedCookies.forEach(item => {
@@ -113,7 +113,7 @@ cookiesBannerSelectedButton.addEventListener("click", () => {
     })
         
     // User has selected a choice and won't see banner again
-    setCookie(cookieMain, "true");
+    setCookie(cookieBanner, "true");
 
     // Mandatory Cookies are accepted
     const mandatoryCookies = "cookiesConsentMandatory";
