@@ -155,6 +155,107 @@ display: none !important;
     text-align: left;
 }
 
+#details-section {
+    background-color:--banner_background;
+}
+
+details {
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    background-color: rgba(239, 239, 239, 0.5);
+    margin-bottom: 10px;
+}
+
+details p {
+    text-align: left;
+}
+
+details > summary {
+    list-style-type: '';
+    display: flex;
+    justify-content: space-between;
+}
+
+details[open] > summary > span > svg {
+    transform: rotate(180deg);
+}
+
+details[closed] > summary > span > svg {
+    transform: rotate(0deg);
+}
+
+
+summary > span {
+    display: flex;
+    align-items: center;
+    gap:  20px;
+}
+
+summary > span {
+    font-weight: bold;
+}
+
+.green {
+    color:  var(--primary);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+}
+
+.switch-input {
+  display: none; /* hide checkbox  */
+}
+
+.switch-label {  
+  display: block;
+  width: 48px; /* define width  */
+  height: 24px; /* define height  */
+  text-indent: -150%; /* Move text behind background */
+  clip: rect(0 0 0 0);
+  color: transparent; /* hide label text  */
+  user-select: none;
+}
+
+.switch-label::before,
+.switch-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+
+.switch-label::before { /* create grey background  */
+  width: 100%;
+  height: 100%;
+  background-color: #dedede;
+  border-radius: 9999em;
+  -webkit-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
+}
+
+.switch-label::after { /* create white button  */
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  -webkit-transition: left 0.25s ease;
+  transition: left 0.25s ease;
+}
+
+.switch-input:checked + .switch-label::before { /* when clicked: change background  */
+  background-color: var(--primary);
+}
+
+.switch-input:checked + .switch-label::after { /* when clicked: change button position  */
+  left: 24px;
+}
+
+
 /* 4. Modules Styles
 ======================================== */
 
