@@ -21,7 +21,7 @@ A click on the button `Cookies ablehnen` will create two new cookies:
 - **cookieBanner** (indicates the user has selected a choice and will no longer see the banner)
 
 A click on the button `Weitere Infos` will lead to a new window: 
-![Cookie Consent](./cookie-consent.jpg)
+![Test](./cookie-consent-banner.jpg)
 
 A click on the button `Alle aktivieren` will create two new cookies: 
 - **cookiesConsentAll=true** (indicates the user has accepted all cookies)
