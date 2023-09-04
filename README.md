@@ -46,6 +46,25 @@ Depending on the user choice the cookies that also will be generated are:
 
 (Note: The Cookie names are auto generated based on the `name` attribute of their `input` field.)
 
+# Integration with Google Tag Manager
+
+The cookie banner works with the Googel Tag Manager.
+
+There are two choices of integrating it:
+1. Using a custom (First-Party-Cookie) variable
+    - Variable type: First-Party-Cookie
+    - Cookie Name: 
+        - 'cookiesConsentAll'
+        - 'cookiesConsent' + `cookieSuffix` (The cookieSuffix is based on the `name` attribute of the cookie choice button in `index.html`)
+2. Using a custom (data layer) variable
+    - Variable type (German: 'Datenschichtvariable'): Data Layer Variable
+    - Data Layer Variable Name: 
+        - 'cookiesConsentAll'
+        - 'cookiesConsent' + `cookieSuffix` (The cookieSuffix is based on the `name` attribute of the cookie choice button in `index.html`)
+    - Data Layer Version (German: Datenschichtversion): Version 2 
+
+
+
 # Sources
 - The starting point for this banner came from [here](https://monsterlessons-academy.com/posts/cookie-consent-popup-cookie-banner-examples-with-html-css-javascript).
 - The small check icon is from [Font Awesome](https://fontawesome.com/icons/check?f=classic&s=solid)
