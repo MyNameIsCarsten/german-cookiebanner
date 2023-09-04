@@ -13,23 +13,23 @@ const getCookie = (name) => {
   
 /* Define setCookie function */
 const setCookie = function (name, value, expiryDays, domain, path, secure) {
-// Create date variable
-const exdate = new Date();
-exdate.setHours(
-    exdate.getHours() +
-    (typeof expiryDays !== "number" ? 365 : expiryDays) * 24
-);
-// Set new cookie by concatenation 
-document.cookie =
-    name +
-    "=" +
-    value +
-    ";expires=" +
-    exdate.toUTCString() +
-    ";path=" +
-    (path || "/") +
-    (domain ? ";domain=" + domain : "") +
-    (secure ? ";secure" : "");
+    // Create date variable
+    const exdate = new Date();
+    exdate.setHours(
+        exdate.getHours() +
+        (typeof expiryDays !== "number" ? 365 : expiryDays) * 24
+    );
+    // Set new cookie by concatenation 
+    document.cookie =
+        name +
+        "=" +
+        value +
+        ";expires=" +
+        exdate.toUTCString() +
+        ";path=" +
+        (path || "/") +
+        (domain ? ";domain=" + domain : "") +
+        (secure ? ";secure" : "");
 };
 
 
@@ -52,6 +52,13 @@ if (!hasCookie) {
 cookiesBanner.classList.remove("hidden");
 }
 
+// Check if a dataLayer exists:
+if (!window.dataLayer){
+    // If there is no dataLayer (which is typically created by the Google Tag Manager)
+    window.dataLayer = window.dataLayer || []; // Create new dataLayer
+}
+
+
 /* Accept event*/
 // Add event listener to button
 cookiesBannerAcceptButton.forEach(item => {
@@ -61,6 +68,15 @@ cookiesBannerAcceptButton.forEach(item => {
         // Call setCookie function 
         setCookie(cookieName, "true");
         setCookie(cookieBanner, "true");
+
+        // For Google Tag Manager
+        const dataLayerObject = {
+            'event': 'cookieAccepted',
+        };
+        dataLayerObject[cookieName] = true;
+        dataLayerObject[cookieBanner] = true;
+        window.dataLayer.push(dataLayerObject);
+
         // Remove banner
         cookiesBanner.remove();
         consentBanner.remove();
@@ -75,6 +91,15 @@ cookiesBannerDeclineButton.addEventListener("click", () => {
     // Call setCookie function 
     setCookie(cookieName, "false");
     setCookie(cookieBanner, "true");
+
+    // For Google Tag Manager
+    const dataLayerObject = {
+        'event': 'cookieAccepted',
+    };
+    dataLayerObject[cookieName] = false;
+    dataLayerObject[cookieBanner] = false;
+    window.dataLayer.push(dataLayerObject);
+
     // Remove banner
     cookiesBanner.remove();
     consentBanner.remove();
@@ -96,6 +121,12 @@ cookiesBannerSelectedButton.addEventListener("click", () => {
     // Store all available options in an array
     const selectedCookies = document.querySelector("#cookies-content").querySelectorAll('input');
 
+
+    // For Google Tag Manager
+    const dataLayerObject = {
+        'event': 'cookieAccepted', //
+    };
+
     // Iterate through array
     selectedCookies.forEach(item => {
         // If the specific cookie is checked
@@ -109,11 +140,18 @@ cookiesBannerSelectedButton.addEventListener("click", () => {
             
             // Call setCookie function 
             setCookie(specificCookieName, "true");
+
+            // For Google Tag Manager
+            dataLayerObject[specificCookieName] = true;
         }
     })
         
     // User has selected a choice and won't see banner again
     setCookie(cookieBanner, "true");
+
+    // For Google Tag Manager
+    dataLayerObject[cookieBanner] = true;
+    window.dataLayer.push(dataLayerObject);
 
     // Mandatory Cookies are accepted
     const mandatoryCookies = "cookiesConsentMandatory";
