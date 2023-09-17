@@ -4,117 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cookieStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     
 </head>
 <body>
-    <div id="cookies-container" class="hidden">
-        <div id="cookies-container2">
-            <div id="cookies-container3">
-                <div class="cookies-eu-banner">
-                    <img id="cookies-img" src="./cookie.svg" alt="Cookie Oma">
-                </div>
-                <div id="cookies-content">
-                    <h1>Zuckersüß</h1>
-                    <p>Mit unseren Cookies möchten wir Ihnen ein zuckersüßes Einkaufserlebnis mit allem was dazugehört bieten. 
-                        Dazu zählen zum Beispiel passende Angebote und das Merken von Einstellungen. 
-                        Wenn das für Sie okay ist, stimmen Sie der Nutzung von Cookies für Präferenzen, Statistiken und Marketing einfach durch einen Klick auf „Geht klar“ zu (<a href="#Link">alle anzeigen</a>).</p>
-                        <div>
-                            
-                        </div>
-                        <div id="button-container">
-                            <button class="acceptBtn">
-                                <img src="./check-solid.svg" alt="Check">
-                                <span>Geht Klar</span>
-                            </button>
-                            <button id="declineBtn">Cookies ablehnen</button>
-                            <button id="infoBtn">Weiter Infos</button>
-                        </div>
-                    <div id="cookie-links">
-                        <a href="">Impressum</a>
-                        <a href="">Datenschutzhinweise</a>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <div id="consent-container" class="hidden">
-        <div id="consent-container2">
-            <div id="consent-container3">
-                <div id="cookies-content">
-                    <h1>Alle Einstellungen für Cookies im Überblick</h1>
-                    <p>Hier haben Sie die genaue Kontrolle über Ihre Privatsphäre und können entscheiden welche Cookies Thomann verwenden darf und welche nicht. Sie können mit dem Klick auf "Alle aktivieren" der Nutzung von allen unten genannten Cookies zustimmen.</p>
-                        <div id="button-container">
-                            <button class="acceptBtn">Alle aktivieren</button>
-                        </div>
-                        <br>
-                    
-                        <section id="details-section">
-                            <details>
-                            <summary>
-                                <span>Notwendig</span>
-                                
-                                <span>
-                                    <p class="green">Pflichtfeld</p>
-                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18">
-                                          <path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path>
-                                      </svg>
-                                </span>
-                            </summary>
-                              <p>Notwendige Cookies helfen dabei, eine Webseite nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und Zugriff auf sichere Bereiche der Webseite ermöglichen. Die Webseite kann ohne diese Cookies nicht richtig funktionieren.</p>
-                        </details>
-                        <details>
-                            <summary>
-                                <span>Statistik</span>
-                                
-                                <span>
-                                    <form action="#">
-                                      <div class="switch">
-                                        <input id="switch-1" name="statistics" type="checkbox" class="switch-input" />
-                                        <label for="switch-1" class="switch-label">Switch</label>
-                                      </div>
-                                    </form>
-                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18">
-                                          <path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path>
-                                      </svg>
-                                </span>
-                            </summary>
-                              <p>Die technische Speicherung oder der Zugriff, der ausschließlich zu statistischen Zwecken erfolgt.</p>
-                        </details>
-                        <details>
-                            <summary>
-                                <span>Marketing</span>
-                                <span>
-                                    <form action="#">
-                                      <div class="switch">
-                                        <input id="switch-2" name="marketing" type="checkbox" class="switch-input" />
-                                        <label for="switch-2" class="switch-label">Switch</label>
-                                      </div>
-                                    </form>
-                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18">
-                                          <path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path>
-                                      </svg>
-                                </span>
-                            </summary>
-                              <p>Die technische Speicherung oder der Zugriff ist erforderlich, um Nutzerprofile zu erstellen, um Werbung zu versenden oder um den Nutzer auf einer Website oder über mehrere Websites hinweg zu ähnlichen Marketingzwecken zu verfolgen.</p>
-                        </details>
-                            
-                        </section>
-                    <br>
-                    <div id="button-container">
-                        <button class="acceptBtn">Alle aktivieren</button>
-                        <button id="selectedBtn">Gewählte Cookies erlauben</button>
-                    </div>
-                    
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-    </div>
     <script src="./cookieScript.js"></script>
 </body>
 </html>

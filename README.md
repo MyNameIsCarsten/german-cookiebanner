@@ -6,6 +6,22 @@ This is simple cookie banner for german websites.
 ## Requirements
 The banner is based on HTML, CSS and JavaScript.
 
+To include it in your page you will need to:
+1. link the stylesheet in your header
+
+```
+<link rel="stylesheet" href="cookieStyle.css">
+```
+
+2. Include the script at the end of the body's tag
+```
+<body>
+    <script src="./cookieScript.js"></script>
+</body>
+```
+
+You should include both on all of your pages.
+
 # How it works
 The `getCookie()` function is used to check if the user has a **cookiesConsent** cookie. This is cookie is referred to as the `cookieBanner`. Its presence tells us, that the user has already selected a cookie choice and thus will no longer see the banner.
 
