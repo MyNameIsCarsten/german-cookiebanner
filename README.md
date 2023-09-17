@@ -1,7 +1,11 @@
 # German Cookie Banner
 ![Cookie Banner](./cookie-banner.jpg)
 ## Description
-This is simple cookie banner for german websites.
+This is a simple cookie banner for german websites that is injected via JavaScript, if the user has not yet seen the banner or selected a cookie choice. 
+
+If the cookie `cookieBanner` is present, the banner will not be injected and thus keep your DOM clean.
+
+The banner is usable with the [Google Tag Manager](#integration-with-google-tag-manager).
 
 ## Requirements
 The banner is based on HTML, CSS and JavaScript.
@@ -10,7 +14,7 @@ To include it in your page you will need to:
 1. link the stylesheet in your header
 
 ```
-<link rel="stylesheet" href="cookieStyle.css">
+<link rel="stylesheet" href="./cookieStyle.css">
 ```
 
 2. Include the script at the end of the body's tag
@@ -20,12 +24,18 @@ To include it in your page you will need to:
 </body>
 ```
 
+3. Make sure to either adjust the path to `cookie.svg` in the injected HTML banner or define a path to your own image
+
+```
+<img id="cookies-img" src="./cookie.svg" alt="Cookie">
+```
+
 You should include both on all of your pages.
 
 # How it works
 The `getCookie()` function is used to check if the user has a **cookiesConsent** cookie. This is cookie is referred to as the `cookieBanner`. Its presence tells us, that the user has already selected a cookie choice and thus will no longer see the banner.
 
-If the **cookiesBanner** cookie is not present, the `hidden` class is removed from the `cookies-container` and we see our cookie banner:
+If the **cookiesBanner** cookie is not present, the ``createBanner()`` function is called and it injects our cookie banner:
 ![Cookie Banner](./cookie-banner.jpg)
 
 A click on the button `Geht Klar` will create two new cookies: 
@@ -47,7 +57,7 @@ Without any selection, clicking on the button `Gewählte Cookies erlauben` will 
 - **cookiesMandatory=true** (indicates the user has accepted all mandatory cookies)
 - **cookieBanner** (indicates the user has selected a choice and will no longer see the banner)
 
-The indivdual selectable cookies can be changed in `index.html`:
+The indivdual selectable cookies can be changed in the `createBanner()` function:
 
 The `cookieScript.js` checks whether the checkbox attribute `checked` is true or false for each `input` element within the `section` with the id=`cookie-setting`.
 If it is true, the specific cookie will be set.
@@ -79,6 +89,9 @@ There are two choices of integrating it:
         - 'cookiesConsent' + `cookieSuffix` (The cookieSuffix is based on the `name` attribute of the cookie choice button in `index.html`)
     - Data Layer Version (German: Datenschichtversion): Version 2 
 
+# Note on Styling
+
+Although I have tried to make them as specific as possible, please ensure that no CSS identifier in `cookieScript.js` clashes with your own identifiers.
 
 
 # Sources
