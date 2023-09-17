@@ -25,7 +25,21 @@ body {
 
 }
 
-button {
+#cookie-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--overlay);
+    backdrop-filter: blur(10px);
+    z-index: 9999; /* Make sure it's above other content */
+}
+
+.cookieBtn {
     background: var(--primary);
     border-color: var(--primary);
     color: #fff;
@@ -75,7 +89,6 @@ button {
     width: 100%;
     height: 100%;
     position: fixed;
-    background: var(--overlay);
     z-index: 101;
     
 }
@@ -159,39 +172,39 @@ display: none !important;
     background-color:--banner_background;
 }
 
-details {
+.cookieDetails {
     border-radius: 0.2rem;
     padding: 0.5rem;
     background-color: rgba(239, 239, 239, 0.5);
     margin-bottom: 10px;
 }
 
-details p {
+.cookieDetails p {
     text-align: left;
 }
 
-details > summary {
+.cookieDetails > summary {
     list-style-type: '';
     display: flex;
     justify-content: space-between;
 }
 
-details[open] > summary > span > svg {
+.cookieDetails[open] > summary > span > svg {
     transform: rotate(180deg);
 }
 
-details[closed] > summary > span > svg {
+.cookieDetails[closed] > summary > span > svg {
     transform: rotate(0deg);
 }
 
 
-summary > span {
+.cookieSummary > span {
     display: flex;
     align-items: center;
     gap:  20px;
 }
 
-summary > span {
+.cookieSummary > span {
     font-weight: bold;
 }
 
@@ -199,16 +212,16 @@ summary > span {
     color:  var(--primary);
 }
 
-.switch {
+.cookieSwitch {
   position: relative;
   display: inline-block;
 }
 
-.switch-input {
+.cookieSwitch-input {
   display: none; /* hide checkbox  */
 }
 
-.switch-label {  
+.cookieSwitch-label {  
   display: block;
   width: 48px; /* define width  */
   height: 24px; /* define height  */
@@ -218,15 +231,15 @@ summary > span {
   user-select: none;
 }
 
-.switch-label::before,
-.switch-label::after {
+.cookieSwitch-label::before,
+.cookieSwitch-label::after {
   content: "";
   display: block;
   position: absolute;
   cursor: pointer;
 }
 
-.switch-label::before { /* create grey background  */
+.cookieSwitch-label::before { /* create grey background  */
   width: 100%;
   height: 100%;
   background-color: #dedede;
@@ -235,7 +248,7 @@ summary > span {
   transition: background-color 0.25s ease;
 }
 
-.switch-label::after { /* create white button  */
+.cookieSwitch-label::after { /* create white button  */
   top: 0;
   left: 0;
   width: 24px;
@@ -247,11 +260,11 @@ summary > span {
   transition: left 0.25s ease;
 }
 
-.switch-input:checked + .switch-label::before { /* when clicked: change background  */
+.cookieSwitch-input:checked + .cookieSwitch-label::before { /* when clicked: change background  */
   background-color: var(--primary);
 }
 
-.switch-input:checked + .switch-label::after { /* when clicked: change button position  */
+.cookieSwitch-input:checked + .cookieSwitch-label::after { /* when clicked: change button position  */
   left: 24px;
 }
 
